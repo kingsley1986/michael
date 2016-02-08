@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 	before_save { self.email = email.downcase }
+	validates :password, presence: true
+	validates :password_confirmation, presence: true
 
 	validates :name, presence: true, length: {maximum: 50}
 
